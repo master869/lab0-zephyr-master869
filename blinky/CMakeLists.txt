@@ -25,6 +25,7 @@ target_include_directories_ifdef(CONFIG_SUM_LOG app PRIVATE
 
 target_sources(app PRIVATE
     bme280_direct/bme280_direct.c
+    bme280_direct/bme280_compensation.c
 )
 
 target_include_directories(app PRIVATE

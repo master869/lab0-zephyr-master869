@@ -1,0 +1,10 @@
+tests:
+  bme280.unit:
+    platform_allow:
+      - qemu_cortex_m3
+    extra_dtc_overlay_files:
+      - boards/qemu_cortex_m3.overlay
+    tags:
+      - bme280
+      - unit
+    harness: ztest
