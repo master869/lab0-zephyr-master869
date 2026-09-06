@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/i2c.h>
+#include "bme280_direct.h"
 
 ///////////6.1 Add sum_log and sum_printk header files//////////
 #if defined(CONFIG_SUM_PRINT)
@@ -30,7 +32,11 @@
 /////////5.3 Add custom button5180 devicetree alias////////////
 #define BUTTON_NODE DT_ALIAS(button5180)
 
-
+// /* Section 8: BME280 direct I2C access */
+// #define BME280_NODE DT_NODELABEL(bme280_i2c)
+// #define BME280_REG_CHIP_ID 0xD0
+// #define BME280_EXPECTED_CHIP_ID 0x60
+// static const struct i2c_dt_spec bme280 = I2C_DT_SPEC_GET(BME280_NODE);
 
 /*
  * A build error on this line means your board is unsupported.
@@ -54,10 +60,25 @@ int main(void)
 
 	bool previous_button_state = false;
 
+	int64_t next_temperature_read;
+
+
+	/* Section 8: Initialize BME280 */
+	ret = bme280_direct_init();
+	if (ret < 0) {
+		printk("BME280 initialization failed: %d\n", ret);
+		return 0;
+	}
+
+	printk("BME280 communication successful\n");
+
+	next_temperature_read = k_uptime_get();
+
 	// if (!gpio_is_ready_dt(&led)) {
 	// 	return 0;
 	// }
 
+    /* Section 5: Initialize LED and button */
 	if (!gpio_is_ready_dt(&led) ||
 	    !gpio_is_ready_dt(&button)) {
 		return 0;
@@ -81,6 +102,24 @@ int main(void)
 		// led_state = !led_state;
 		// printf("LED state: %s\n", led_state ? "ON" : "OFF");
 		// k_msleep(SLEEP_TIME_MS);
+
+        /* Section 8: Print temperature every two seconds */
+		if (k_uptime_get() >= next_temperature_read) {
+			int32_t temperature_x100;
+			int32_t absolute_temperature;
+
+			ret = bme280_direct_read_temperature(&temperature_x100);
+
+			if (ret < 0) {
+				printk("Temperature read failed: %d\n", ret);
+			}
+			else {
+				absolute_temperature = temperature_x100 < 0 ? -temperature_x100 : temperature_x100;
+				printk("Temperature: %s%d.%02d C\n", temperature_x100 < 0 ? "-" : "", absolute_temperature / 100, absolute_temperature % 100);
+			}
+
+			next_temperature_read = k_uptime_get() + 2000;
+		}
 
 		///////////////5.2 Poll button to toggle LED2////////////////////////
 		int button_state = gpio_pin_get_dt(&button);

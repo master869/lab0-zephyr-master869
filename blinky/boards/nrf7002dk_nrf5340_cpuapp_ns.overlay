@@ -6,3 +6,33 @@
 		button5180 = &button0;
 	};
 };
+
+/* Section 8: BME280 connected directly through I2C1 */
+&i2c1 {
+	status = "okay";
+
+	bme280_i2c: bme280@77 {
+		compatible = "i2c-device";
+		status = "okay";
+		reg = <0x77>;
+	};
+};
+
+/*
+ * nRF Connect SDK v3.4.0 already defines these pinctrl nodes,
+ * so override their pins instead of defining duplicate labels.
+ */
+&i2c1_default {
+	group1 {
+		psels = <NRF_PSEL(TWIM_SCL, 1, 14)>,
+			<NRF_PSEL(TWIM_SDA, 1, 15)>;
+	};
+};
+
+&i2c1_sleep {
+	group1 {
+		psels = <NRF_PSEL(TWIM_SCL, 1, 14)>,
+			<NRF_PSEL(TWIM_SDA, 1, 15)>;
+		low-power-enable;
+	};
+};

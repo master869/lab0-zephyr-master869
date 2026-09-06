@@ -22,3 +22,11 @@ target_sources_ifdef(CONFIG_SUM_LOG app PRIVATE
 target_include_directories_ifdef(CONFIG_SUM_LOG app PRIVATE
     sum_log
 )
+
+target_sources(app PRIVATE
+    bme280_direct/bme280_direct.c
+)
+
+target_include_directories(app PRIVATE
+    bme280_direct
+)
