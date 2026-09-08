@@ -13,22 +13,24 @@
 - In the video, show each MCU board flashing its LED while running the blinky code.
 - Name the video file:  **f26_lab0_1.1_pennkey**
 - Submit the video to this Google Form.
-
+I have already submitted the video to the Google Form, and you can also watch it through [this link](https://drive.google.com/file/d/1DcdMlcKjoKI8Rmm5aLuEkqCKaTvYYJUn/view?usp=share_link)
 
 ## 2. Hello (Nordic) Zephyr
 
 ### (2.1) Commit your Zephyr application to your GitHub repository
+Done
 
 ### (2.2) Create a video showing the change in blinky behavior on the nRF7002DK
 - In the video, show your terminal history within VS Code 
 - In the video, show the nRF7002DK board blinking at its original rate, then change the blinking time to 2 seconds, flash, and show the execution.
 - Name the video file:  **f26_lab0_2.1_pennkey**
 - Submit the video to this Google Form.
-
+I have already submitted the video to the Google Form, and you can also watch it through [this link](https://drive.google.com/file/d/1u_UTDamv3S5kqOEVwneuFm9fVVafI_Bw/view?usp=share_link)
 
 ## 3. Building with West
 
 ### (3.1) Build and Flash using only west commands and not the GUI. Show the terminal prints by embedding a screenshot in your README.md.
+[images/3_1.png](images/3_1.png)
 
 ## 4. Kconfig
 
@@ -38,7 +40,7 @@
 
 ### (5.2) Poll for a button press and switch the LED state. Commit these application changes to your GitHub repository.
 
-### (5.3) (5.3) Create a new alias for your button and call your alias within your main.c. Commit these application changes to your GitHub repository.
+### (5.3) Create a new alias for your button and call your alias within your main.c. Commit these application changes to your GitHub repository.
 
 ## 6. Printing vs. Logging
 
