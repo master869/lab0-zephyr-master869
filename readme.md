@@ -32,8 +32,26 @@
 
 ## 6. Printing vs. Logging
 
-### (6.1) (6.1) Take screenshots of console output for both builds:
+### (6.1) Take screenshots of console output for both builds:
 - `CONFIG_SUM_PRINT=y` → result printed with `printk()`.
 - `CONFIG_SUM_LOG=y` → result printed with the `Logger` (include hexdump).
 
+### (6.2) Make a short video showing hexdump, log, and printk.
+- Name the video file:  **f26_lab0_6.2_pennkey**
+- Submit the video to this Google Form.
 
+### (6.3) Commit your updated Zephyr application to your GitHub repository
+
+## 7. Ztest for Unit Testing
+
+### (7.1) Implement the test case in “TO DO” to test your function. Commit your updated Zephyr application to your GitHub repository
+
+### (7.2) Take screenshots of the testing outputs (laptop) in the terminal.
+
+## 8. Adding a Peripheral (BME280)
+
+### (8.1) Print out the temperature. Take screenshots of your logging output. Commit your Zephyr application to your GitHub repository.
+
+### (8.2) Create a Ztest to test if the device tree is set up and run sanity checks. Take and embed screenshots of your Ztest output for your README.md. Commit your Zephyr application to your GitHub repository.
+
+## 9. Teaching Team Checkoff
