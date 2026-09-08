@@ -32,17 +32,20 @@ I have already submitted the video to the Google Form, and you can also watch it
 ## 3. Building with West
 
 ### (3.1) Build and Flash using only west commands and not the GUI. Show the terminal prints by embedding a screenshot in your README.md.
-[images\3_1.png](images\3_1.png)
+![images/3_1.png](images/3_1.png)
 
 ## 4. Kconfig
 
 ## 5. Device Tree (DT)
 
 ### (5.1) Switch out the blinking to **LED2**. Create an overlay file with your own alias named **LED5180** that links to **LED2** on the nRF7002 DK. Ensure you only call this alias in the main.c program. Commit your code to this GitHub Classroom repository.
+Done
 
 ### (5.2) Poll for a button press and switch the LED state. Commit these application changes to your GitHub repository.
+Done
 
 ### (5.3) Create a new alias for your button and call your alias within your main.c. Commit these application changes to your GitHub repository.
+Done
 
 ## 6. Printing vs. Logging
 
@@ -50,22 +53,37 @@ I have already submitted the video to the Google Form, and you can also watch it
 - `CONFIG_SUM_PRINT=y` → result printed with `printk()`.
 - `CONFIG_SUM_LOG=y` → result printed with the `Logger` (include hexdump).
 
+`printk():`![images/6_1_printk.png](images/6_1_printk.png)
+
+`Logger:`![images/6_1_logger.png](images/6_1_logger.png)
+
 ### (6.2) Make a short video showing hexdump, log, and printk.
 - Name the video file:  **f26_lab0_6.2_pennkey**
 - Submit the video to this Google Form.
 
+I have already submitted the video to the Google Form, and you can also watch it through [this link](https://drive.google.com/file/d/1eUKBySQ3ZnF-gCVlTBweInKVvsuvZvJu/view?usp=share_link)
+
 ### (6.3) Commit your updated Zephyr application to your GitHub repository
+Done
 
 ## 7. Ztest for Unit Testing
 
 ### (7.1) Implement the test case in “TO DO” to test your function. Commit your updated Zephyr application to your GitHub repository
+Done
 
 ### (7.2) Take screenshots of the testing outputs (laptop) in the terminal.
+A: run in test directory (SUM_UNIT_TEST) 
+![images/7_2.png](images/7_2.png)
+
+B: run in root directory (LAB_1)
+![images/7_2_twister.png]()images/7_2_twister.png
 
 ## 8. Adding a Peripheral (BME280)
 
 ### (8.1) Print out the temperature. Take screenshots of your logging output. Commit your Zephyr application to your GitHub repository.
+![images/8_1.png](images/8_1.png)
 
 ### (8.2) Create a Ztest to test if the device tree is set up and run sanity checks. Take and embed screenshots of your Ztest output for your README.md. Commit your Zephyr application to your GitHub repository.
+![images/8_2.png](images/8_2.png)
 
 ## 9. Teaching Team Checkoff
