@@ -9,12 +9,22 @@
 ## 1. Hello (Vanilla) Zephyr
 
 ### (1.1) Create a video showing blinky on all 3x MCU boards.
+- In the video, show your terminal history of compiling and flashing for all 3x MCU boards.
+- In the video, show each MCU board flashing its LED while running the blinky code.
+- Name the video file:  **f26_lab0_1.1_pennkey**
+- Submit the video to this Google Form.
+
 
 ## 2. Hello (Nordic) Zephyr
 
 ### (2.1) Commit your Zephyr application to your GitHub repository
 
 ### (2.2) Create a video showing the change in blinky behavior on the nRF7002DK
+- In the video, show your terminal history within VS Code 
+- In the video, show the nRF7002DK board blinking at its original rate, then change the blinking time to 2 seconds, flash, and show the execution.
+- Name the video file:  **f26_lab0_2.1_pennkey**
+- Submit the video to this Google Form.
+
 
 ## 3. Building with West
 
@@ -24,7 +34,7 @@
 
 ## 5. Device Tree (DT)
 
-### (5.1) Switch out the blinking to LED2. Create an overlay file with your own alias named LED5180 that links to LED2 on the nRF7002 DK. Ensure you only call this alias in the main.c program. Commit your code to this GitHub Classroom repository.
+### (5.1) Switch out the blinking to **LED2**. Create an overlay file with your own alias named **LED5180** that links to **LED2** on the nRF7002 DK. Ensure you only call this alias in the main.c program. Commit your code to this GitHub Classroom repository.
 
 ### (5.2) Poll for a button press and switch the LED state. Commit these application changes to your GitHub repository.
 
