@@ -76,7 +76,7 @@ A: run in test directory (SUM_UNIT_TEST)
 ![images/7_2.png](images/7_2.png)
 
 B: run in root directory (LAB_1)
-![images/7_2_twister.png]()images/7_2_twister.png
+![images/7_2_twister.png](images/7_2_twister.png)
 
 ## 8. Adding a Peripheral (BME280)
 
