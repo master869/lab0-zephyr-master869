@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ese5180-lab-0-zephyr">ESE5180: Lab 0 Zephyr</h1>
+<table>
+<thead>
+<tr>
+<th>Team Member Name</th>
+<th>Email Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weiye Zhai</td>
+<td>zhaiwy@engineering.upenn.edu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GitHub Repository URL:</strong>  <a href="https://github.com/master869/lab0-zephyr-master869.git">https://github.com/master869/lab0-zephyr-master869.git</a></p>
+<h2 id="1-hello-vanilla-zephyr">1. Hello (Vanilla) Zephyr</h2>
+<h3 id="11-create-a-video-showing-blinky-on-all-3x-mcu-boards">(1.1) Create a video showing blinky on all 3x MCU boards.</h3>
+<ul>
+<li>In the video, show your terminal history of compiling and flashing for all 3x MCU boards.</li>
+<li>In the video, show each MCU board flashing its LED while running the blinky code.</li>
+<li>Name the video file:  <strong>f26_lab0_1.1_pennkey</strong></li>
+<li>Submit the video to this Google Form.</li>
+</ul>
+<p>I have already submitted the video to the Google Form, and you can also watch it through <a href="https://drive.google.com/file/d/1DcdMlcKjoKI8Rmm5aLuEkqCKaTvYYJUn/view?usp=share_link">this link</a></p>
+<h2 id="2-hello-nordic-zephyr">2. Hello (Nordic) Zephyr</h2>
+<h3 id="21-commit-your-zephyr-application-to-your-github-repository">(2.1) Commit your Zephyr application to your GitHub repository</h3>
+<p>Done</p>
+<h3 id="22-create-a-video-showing-the-change-in-blinky-behavior-on-the-nrf7002dk">(2.2) Create a video showing the change in blinky behavior on the nRF7002DK</h3>
+<ul>
+<li>In the video, show your terminal history within VS Code</li>
+<li>In the video, show the nRF7002DK board blinking at its original rate, then change the blinking time to 2 seconds, flash, and show the execution.</li>
+<li>Name the video file:  <strong>f26_lab0_2.1_pennkey</strong></li>
+<li>Submit the video to this Google Form.</li>
+</ul>
+<p>I have already submitted the video to the Google Form, and you can also watch it through <a href="https://drive.google.com/file/d/1u_UTDamv3S5kqOEVwneuFm9fVVafI_Bw/view?usp=share_link">this link</a></p>
+<h2 id="3-building-with-west">3. Building with West</h2>
+<h3 id="31-build-and-flash-using-only-west-commands-and-not-the-gui-show-the-terminal-prints-by-embedding-a-screenshot-in-your-readmemd">(3.1) Build and Flash using only west commands and not the GUI. Show the terminal prints by embedding a screenshot in your README.md.</h3>
+<p><img src="images/3_1.png" alt="images/3_1.png"></p>
+<h2 id="4-kconfig">4. Kconfig</h2>
+<h2 id="5-device-tree-dt">5. Device Tree (DT)</h2>
+<h3 id="51-switch-out-the-blinking-to-led2-create-an-overlay-file-with-your-own-alias-named-led5180-that-links-to-led2-on-the-nrf7002-dk-ensure-you-only-call-this-alias-in-the-mainc-program-commit-your-code-to-this-github-classroom-repository">(5.1) Switch out the blinking to <strong>LED2</strong>. Create an overlay file with your own alias named <strong>LED5180</strong> that links to <strong>LED2</strong> on the nRF7002 DK. Ensure you only call this alias in the main.c program. Commit your code to this GitHub Classroom repository.</h3>
+<p>Done</p>
+<h3 id="52-poll-for-a-button-press-and-switch-the-led-state-commit-these-application-changes-to-your-github-repository">(5.2) Poll for a button press and switch the LED state. Commit these application changes to your GitHub repository.</h3>
+<p>Done</p>
+<h3 id="53-create-a-new-alias-for-your-button-and-call-your-alias-within-your-mainc-commit-these-application-changes-to-your-github-repository">(5.3) Create a new alias for your button and call your alias within your main.c. Commit these application changes to your GitHub repository.</h3>
+<p>Done</p>
+<h2 id="6-printing-vs-logging">6. Printing vs. Logging</h2>
+<h3 id="61-take-screenshots-of-console-output-for-both-builds">(6.1) Take screenshots of console output for both builds:</h3>
+<ul>
+<li><code>CONFIG_SUM_PRINT=y</code> → result printed with <code>printk()</code>.</li>
+<li><code>CONFIG_SUM_LOG=y</code> → result printed with the <code>Logger</code> (include hexdump).</li>
+</ul>
+<p><code>printk():</code><img src="images/6_1_printk.png" alt="images/6_1_printk.png"></p>
+<p><code>Logger:</code><img src="images/6_1_logger.png" alt="images/6_1_logger.png"></p>
+<h3 id="62-make-a-short-video-showing-hexdump-log-and-printk">(6.2) Make a short video showing hexdump, log, and printk.</h3>
+<ul>
+<li>Name the video file:  <strong>f26_lab0_6.2_pennkey</strong></li>
+<li>Submit the video to this Google Form.</li>
+</ul>
+<p>I have already submitted the video to the Google Form, and you can also watch it through <a href="https://drive.google.com/file/d/1eUKBySQ3ZnF-gCVlTBweInKVvsuvZvJu/view?usp=share_link">this link</a></p>
+<h3 id="63-commit-your-updated-zephyr-application-to-your-github-repository">(6.3) Commit your updated Zephyr application to your GitHub repository</h3>
+<p>Done</p>
+<h2 id="7-ztest-for-unit-testing">7. Ztest for Unit Testing</h2>
+<h3 id="71-implement-the-test-case-in-to-do-to-test-your-function-commit-your-updated-zephyr-application-to-your-github-repository">(7.1) Implement the test case in “TO DO” to test your function. Commit your updated Zephyr application to your GitHub repository</h3>
+<p>Done</p>
+<h3 id="72-take-screenshots-of-the-testing-outputs-laptop-in-the-terminal">(7.2) Take screenshots of the testing outputs (laptop) in the terminal.</h3>
+<p>A: run in test directory (SUM_UNIT_TEST)
+<img src="images/7_2.png" alt="images/7_2.png"></p>
+<p>B: run in root directory (LAB_1)
+<img src="images/7_2_twister.png" alt="images/7_2_twister.png"></p>
+<h2 id="8-adding-a-peripheral-bme280">8. Adding a Peripheral (BME280)</h2>
+<h3 id="81-print-out-the-temperature-take-screenshots-of-your-logging-output-commit-your-zephyr-application-to-your-github-repository">(8.1) Print out the temperature. Take screenshots of your logging output. Commit your Zephyr application to your GitHub repository.</h3>
+<p><img src="images/8_1.png" alt="images/8_1.png"></p>
+<h3 id="82-create-a-ztest-to-test-if-the-device-tree-is-set-up-and-run-sanity-checks-take-and-embed-screenshots-of-your-ztest-output-for-your-readmemd-commit-your-zephyr-application-to-your-github-repository">(8.2) Create a Ztest to test if the device tree is set up and run sanity checks. Take and embed screenshots of your Ztest output for your README.md. Commit your Zephyr application to your GitHub repository.</h3>
+<p><img src="images/8_2.png" alt="images/8_2.png"></p>
+<h2 id="9-teaching-team-checkoff">9. Teaching Team Checkoff</h2>
+
+</body>
+</html>
